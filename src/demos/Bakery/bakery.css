@@ -1,0 +1,1156 @@
+/* bakery.css - Maison Hearth & Harvest Bakery Style (Ultra-Premium, Minimalist, Light Theme) */
+
+:root {
+  --bakery-bg: #FAF9F6;
+  --bakery-bg-card: #F5F0E8;
+  --bakery-text: #2C2C2C;
+  --bakery-text-muted: #666666;
+  --bakery-accent: #C9A96E;
+  --bakery-secondary: #A3B18A;
+  --bakery-dark-accent: #3E2723;
+  --bakery-border: rgba(62, 39, 35, 0.08);
+}
+
+.premium-bakery-body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bakery-bg);
+  color: var(--bakery-text);
+  line-height: 1.7;
+  overflow-x: hidden;
+  text-align: left;
+}
+
+.premium-bakery-serif {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+}
+
+/* Navbar */
+.premium-bakery-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 60px;
+  background-color: var(--bakery-bg);
+  border-bottom: 1px solid var(--bakery-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+@media (max-width: 768px) {
+  .premium-bakery-navbar {
+    padding: 16px 24px;
+  }
+}
+
+.premium-bakery-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--bakery-dark-accent);
+  text-transform: uppercase;
+}
+
+.premium-bakery-nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+.premium-bakery-nav-link {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--bakery-text);
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.premium-bakery-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: var(--bakery-accent);
+  transition: width 0.3s;
+}
+
+.premium-bakery-nav-link:hover::after {
+  width: 100%;
+}
+
+.premium-bakery-mobile-toggle {
+  display: none;
+}
+
+.premium-bakery-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99; /* Below navbar (100) but above page content */
+  background-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .premium-bakery-mobile-toggle {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--bakery-dark-accent);
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .premium-bakery-nav-links {
+    display: none;
+  }
+
+  .premium-bakery-nav-links.mobile-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 68px; /* Just below sticky navbar bottom border */
+    left: 24px;
+    right: 24px;
+    background-color: var(--bakery-bg);
+    border: 1px solid var(--bakery-border);
+    padding: 24px;
+    gap: 20px;
+    box-shadow: 0 10px 30px rgba(62, 39, 37, 0.12);
+    text-align: center;
+    z-index: 100;
+  }
+
+  .premium-bakery-nav-link {
+    font-size: 12px;
+    display: block;
+    padding: 6px 0;
+  }
+}
+
+/* Hero Section */
+.premium-bakery-hero {
+  position: relative;
+  height: 85vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--bakery-dark-accent);
+}
+
+.premium-bakery-hero-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.75;
+}
+
+.premium-bakery-hero-overlay {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 720px;
+  padding: 0 24px;
+  color: white;
+}
+
+.premium-bakery-hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 64px;
+  font-weight: 300;
+  line-height: 1.15;
+  margin-bottom: 32px;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 768px) {
+  .premium-bakery-hero-title {
+    font-size: 40px;
+  }
+}
+
+.premium-bakery-btn {
+  display: inline-block;
+  padding: 14px 36px;
+  background-color: white;
+  color: var(--bakery-dark-accent);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  border: 1px solid white;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 0;
+}
+
+.premium-bakery-btn:hover {
+  background-color: transparent;
+  color: white;
+}
+
+.premium-bakery-btn-dark {
+  background-color: var(--bakery-dark-accent);
+  color: white;
+  border-color: var(--bakery-dark-accent);
+}
+
+.premium-bakery-btn-dark:hover {
+  background-color: transparent;
+  color: var(--bakery-dark-accent);
+}
+
+/* Section general */
+.premium-bakery-section {
+  padding: 120px 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .premium-bakery-section {
+    padding: 80px 20px;
+  }
+}
+
+.premium-bakery-sec-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px;
+  font-weight: 300;
+  color: var(--bakery-dark-accent);
+  text-align: center;
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.premium-bakery-sec-subtitle {
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--bakery-accent);
+  margin-bottom: 64px;
+}
+
+/* Featured grid */
+.premium-bakery-featured-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+@media (max-width: 768px) {
+  .premium-bakery-featured-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.premium-bakery-featured-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bakery-bg);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premium-bakery-featured-card:hover {
+  transform: translateY(-4px);
+}
+
+.premium-bakery-featured-img-wrap {
+  width: 100%;
+  aspect-ratio: 0.8;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--bakery-bg-card);
+}
+
+.premium-bakery-featured-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premium-bakery-featured-card:hover .premium-bakery-featured-img {
+  transform: scale(1.03);
+}
+
+.premium-bakery-featured-meta {
+  padding: 24px 0 0;
+  text-align: left;
+}
+
+.premium-bakery-featured-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--bakery-dark-accent);
+  margin-bottom: 4px;
+}
+
+.premium-bakery-featured-desc {
+  font-size: 13px;
+  color: var(--bakery-text-muted);
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.premium-bakery-featured-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.premium-bakery-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--bakery-text);
+}
+
+.premium-bakery-tag {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--bakery-accent);
+  border: 1px solid var(--bakery-accent);
+  padding: 2px 8px;
+}
+
+/* Menu Grid */
+.premium-bakery-menu-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.premium-bakery-menu-tab {
+  background: none;
+  border: none;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--bakery-text-muted);
+  cursor: pointer;
+  padding: 8px 0;
+  position: relative;
+}
+
+.premium-bakery-menu-tab.active, .premium-bakery-menu-tab:hover {
+  color: var(--bakery-dark-accent);
+}
+
+.premium-bakery-menu-tab::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: var(--bakery-dark-accent);
+  transition: width 0.3s;
+}
+
+.premium-bakery-menu-tab.active::after {
+  width: 100%;
+}
+
+.premium-bakery-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+@media (max-width: 768px) {
+  .premium-bakery-menu-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.premium-bakery-menu-item {
+  display: flex;
+  gap: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--bakery-border);
+  align-items: start;
+}
+
+.premium-bakery-menu-img-wrap {
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+  overflow: hidden;
+  background-color: var(--bakery-bg-card);
+}
+
+.premium-bakery-menu-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.premium-bakery-menu-info {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.premium-bakery-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+.premium-bakery-menu-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--bakery-dark-accent);
+}
+
+.premium-bakery-dietary-badge {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--bakery-secondary);
+  text-transform: uppercase;
+  margin-left: 8px;
+  letter-spacing: 0.05em;
+}
+
+/* Experience Flow */
+.premium-bakery-flow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .premium-bakery-flow {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.premium-bakery-flow-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.premium-bakery-flow-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px;
+  font-weight: 300;
+  color: var(--bakery-accent);
+  margin-bottom: 16px;
+}
+
+.premium-bakery-flow-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--bakery-dark-accent);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.premium-bakery-flow-desc {
+  font-size: 13px;
+  color: var(--bakery-text-muted);
+  max-width: 240px;
+}
+
+/* Custom Cake Builder Form */
+.premium-bakery-builder {
+  background-color: var(--bakery-bg-card);
+  border: 1px solid var(--bakery-border);
+  padding: 48px;
+  margin-top: 64px;
+}
+
+@media (max-width: 768px) {
+  .premium-bakery-builder {
+    padding: 24px;
+  }
+}
+
+.premium-bakery-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .premium-bakery-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+.premium-bakery-form-full {
+  grid-column: span 2;
+}
+
+@media (max-width: 768px) {
+  .premium-bakery-form-full {
+    grid-column: span 1;
+  }
+}
+
+.premium-bakery-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.premium-bakery-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--bakery-text);
+}
+
+.premium-bakery-input {
+  padding: 12px 16px;
+  border: 1px solid var(--bakery-border);
+  background-color: white;
+  color: var(--bakery-text);
+  font-size: 14px;
+  border-radius: 0;
+  transition: border-color 0.3s;
+}
+
+.premium-bakery-input:focus {
+  outline: none;
+  border-color: var(--bakery-accent);
+}
+
+/* Zip Checker */
+.premium-bakery-zip-checker {
+  display: flex;
+  gap: 12px;
+  margin-top: 40px;
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .premium-bakery-zip-checker {
+    flex-direction: column;
+  }
+}
+
+/* Story Section */
+.premium-bakery-story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .premium-bakery-story-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.premium-bakery-story-content {
+  text-align: left;
+}
+
+.premium-bakery-story-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--bakery-dark-accent);
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.premium-bakery-story-text {
+  font-size: 15px;
+  color: var(--bakery-text-muted);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.premium-bakery-story-img-wrap {
+  aspect-ratio: 1.2;
+  overflow: hidden;
+  background-color: var(--bakery-bg-card);
+}
+
+.premium-bakery-story-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Reviews */
+.premium-bakery-reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+@media (max-width: 768px) {
+  .premium-bakery-reviews-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.premium-bakery-review-card {
+  text-align: left;
+  border-left: 2px solid var(--bakery-accent);
+  padding-left: 24px;
+}
+
+.premium-bakery-review-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-style: italic;
+  color: var(--bakery-dark-accent);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.premium-bakery-review-author {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--bakery-text);
+}
+
+.premium-bakery-review-context {
+  font-size: 11px;
+  color: var(--bakery-accent);
+  margin-left: 8px;
+}
+
+/* Instagram embed */
+.premium-bakery-insta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 48px;
+}
+
+@media (max-width: 768px) {
+  .premium-bakery-insta-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.premium-bakery-insta-item {
+  aspect-ratio: 1;
+  overflow: hidden;
+  background-color: var(--bakery-bg-card);
+}
+
+.premium-bakery-insta-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premium-bakery-insta-item:hover .premium-bakery-insta-img {
+  transform: scale(1.05);
+}
+
+/* Contact */
+.premium-bakery-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+@media (max-width: 768px) {
+  .premium-bakery-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.premium-bakery-contact-info {
+  text-align: left;
+}
+
+.premium-bakery-contact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.premium-bakery-contact-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--bakery-accent);
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+
+.premium-bakery-contact-detail {
+  font-size: 15px;
+  color: var(--bakery-text);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+}
+
+/* Map placeholder */
+.premium-bakery-map-placeholder {
+  width: 100%;
+  height: 240px;
+  background-color: var(--bakery-bg-card);
+  border: 1px solid var(--bakery-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: var(--bakery-text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Honeypot */
+.bakery-hidden-field {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Success Modal */
+.premium-bakery-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(62, 39, 37, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: flex-start; /* Align to top to allow natural scrolling of long modals */
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+  overflow-y: auto; /* Enable scrolling when modal is taller than screen */
+}
+
+.premium-bakery-modal {
+  background-color: var(--bakery-bg);
+  padding: 48px;
+  max-width: 500px;
+  width: 100%;
+  border: 1px solid var(--bakery-border);
+  text-align: center;
+  margin: 40px auto; /* Centered with top/bottom margin for scroll view */
+}
+
+@media (max-width: 768px) {
+  .premium-bakery-modal {
+    padding: 32px 24px;
+  }
+}
+
+.premium-bakery-modal-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--bakery-dark-accent);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.premium-bakery-modal-text {
+  font-size: 14px;
+  color: var(--bakery-text-muted);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+/* Footer */
+.premium-bakery-footer {
+  border-top: 1px solid var(--bakery-border);
+  padding: 80px 24px;
+  background-color: var(--bakery-bg);
+  text-align: center;
+}
+
+.premium-bakery-footer-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .premium-bakery-footer-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+.premium-bakery-footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.premium-bakery-footer-link {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--bakery-text-muted);
+}
+.premium-bakery-footer-link:hover {
+  color: var(--bakery-accent);
+}
+
+.premium-bakery-footer-copy {
+  font-size: 11px;
+  color: var(--bakery-text-muted);
+  letter-spacing: 0.02em;
+}
+
+/* Premium Floating Cart Button */
+.premium-bakery-floating-cart {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: var(--bakery-dark-accent);
+  color: white;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(62, 39, 35, 0.25);
+  cursor: pointer;
+  z-index: 999;
+  transition: transform 0.3s, background-color 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.premium-bakery-floating-cart:hover {
+  transform: scale(1.05);
+  background-color: #4e3532;
+}
+
+.premium-bakery-cart-count-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background-color: var(--bakery-accent);
+  color: var(--bakery-dark-accent);
+  font-size: 12px;
+  font-weight: 800;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Cart Drawer / Sidebar */
+.premium-bakery-drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(62, 39, 35, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.premium-bakery-cart-drawer {
+  width: 100%;
+  max-width: 440px;
+  height: 100%;
+  background-color: var(--bakery-bg);
+  box-shadow: -10px 0 40px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  padding: 40px 32px;
+  border-left: 1px solid var(--bakery-border);
+  animation: slideLeft 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideLeft {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@media (max-width: 480px) {
+  .premium-bakery-cart-drawer {
+    padding: 24px 20px;
+  }
+}
+
+.premium-bakery-drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--bakery-border);
+  padding-bottom: 20px;
+  margin-bottom: 24px;
+}
+
+.premium-bakery-drawer-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--bakery-dark-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.premium-bakery-drawer-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--bakery-text);
+  padding: 4px;
+}
+
+.premium-bakery-cart-items-list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-right: 8px;
+}
+
+.premium-bakery-cart-item {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed var(--bakery-border);
+}
+
+.premium-bakery-cart-item-img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  background-color: var(--bakery-bg-card);
+}
+
+.premium-bakery-cart-item-info {
+  flex: 1;
+}
+
+.premium-bakery-cart-item-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--bakery-dark-accent);
+}
+
+.premium-bakery-cart-item-price {
+  font-size: 13px;
+  color: var(--bakery-text-muted);
+}
+
+.premium-bakery-qty-controls {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--bakery-border);
+  background-color: white;
+}
+
+.premium-bakery-qty-btn {
+  background: none;
+  border: none;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--bakery-text);
+}
+.premium-bakery-qty-btn:hover {
+  background-color: var(--bakery-bg-card);
+}
+
+.premium-bakery-qty-value {
+  padding: 0 10px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.premium-bakery-cart-item-remove {
+  background: none;
+  border: none;
+  color: #b91c1c;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.premium-bakery-drawer-summary {
+  border-top: 1px solid var(--bakery-border);
+  padding-top: 24px;
+  margin-top: 20px;
+}
+
+.premium-bakery-summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: var(--bakery-text-muted);
+}
+
+.premium-bakery-summary-row.total {
+  font-size: 20px;
+  color: var(--bakery-dark-accent);
+  font-weight: 700;
+  border-top: 1px dashed var(--bakery-border);
+  padding-top: 12px;
+  margin-top: 12px;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.premium-bakery-empty-cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60%;
+  color: var(--bakery-text-muted);
+  gap: 16px;
+}
+
+/* Form Selector (Delivery/Pickup) */
+.premium-bakery-toggle-group {
+  display: flex;
+  border: 1px solid var(--bakery-border);
+  margin-bottom: 20px;
+}
+
+.premium-bakery-toggle-btn {
+  flex: 1;
+  padding: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: none;
+  background-color: white;
+  color: var(--bakery-text-muted);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.premium-bakery-toggle-btn.active {
+  background-color: var(--bakery-dark-accent);
+  color: white;
+}
+
+/* Add to Cart Menu Button */
+.premium-bakery-menu-add-btn {
+  background-color: transparent;
+  border: 1px solid var(--bakery-dark-accent);
+  color: var(--bakery-dark-accent);
+  padding: 6px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.3s;
+  align-self: flex-start;
+  margin-top: 8px;
+}
+
+.premium-bakery-menu-add-btn:hover {
+  background-color: var(--bakery-dark-accent);
+  color: white;
+}
+
+/* Receipt Screen */
+.premium-bakery-receipt-card {
+  border: 1px dashed var(--bakery-accent);
+  padding: 24px;
+  margin-bottom: 24px;
+  text-align: left;
+  background-color: #fffdfb;
+}
+
+.premium-bakery-receipt-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--bakery-dark-accent);
+  border-bottom: 1px solid var(--bakery-border);
+  padding-bottom: 12px;
+}
+
+.premium-bakery-receipt-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.premium-bakery-receipt-table th {
+  text-align: left;
+  border-bottom: 1.5px solid var(--bakery-border);
+  padding-bottom: 8px;
+  color: var(--bakery-dark-accent);
+  font-weight: 700;
+}
+
+.premium-bakery-receipt-table td {
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--bakery-border);
+}
+
+.premium-bakery-receipt-total {
+  font-weight: bold;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  color: var(--bakery-dark-accent);
+}
+

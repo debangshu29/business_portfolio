@@ -1,0 +1,187 @@
+/* index.css - Premium Luxury Dark Design System */
+
+:root {
+  /* Fonts */
+  --font-main: 'Plus Jakarta Sans', sans-serif;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-mono: 'Space Grotesk', monospace;
+  
+  /* Color Palette - Premium Dark Theme (default) */
+  --bg-primary: #0F0F0F;
+  --bg-secondary: #161616;
+  --bg-card: #1A1A1A;
+  
+  --text-primary: #FAF9F6;
+  --text-secondary: #A8A5A0;
+  --text-muted: #6E6B66;
+  
+  --accent-gold: #C9A96E;
+  --accent-copper: #B87333;
+  --portfolio-accent: var(--accent-gold);
+  
+  --border-subtle: #2A2A2A;
+  
+  --radius-sm: 0px;
+  --radius-md: 4px;
+  --radius-full: 9999px;
+  
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  scroll-behavior: smooth;
+}
+
+/* ── Light Theme Overrides ── */
+[data-theme="light"] {
+  --bg-primary:    #F5F2EC;
+  --bg-secondary:  #EDE9E0;
+  --bg-card:       #E8E3D8;
+  
+  --text-primary:   #1C1C1C;
+  --text-secondary: #6B6560;
+  --text-muted:     #9A948E;
+  
+  --accent-gold:   #A07840;
+  --accent-copper: #8B5E2A;
+  --portfolio-accent: var(--accent-gold);
+  
+  --border-subtle: #D8D2C6;
+}
+
+/* Reset and Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  /* Smooth theme transition */
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+/* Global Grid Container */
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+/* Section Headings */
+.section-header {
+  text-align: left;
+  max-width: 800px;
+  margin-bottom: 80px;
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--portfolio-accent);
+  margin-bottom: 16px;
+  font-family: var(--font-mono);
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 52px;
+  font-weight: 300;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.section-subtitle {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .section-header {
+    margin-bottom: 48px;
+  }
+  .section-title {
+    font-size: 38px;
+  }
+  .section-subtitle {
+    font-size: 15px;
+  }
+}
+
+/* Page entrance animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Spacing layout */
+section {
+  padding: 140px 0;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 80px 0;
+  }
+}

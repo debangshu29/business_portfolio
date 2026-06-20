@@ -1,0 +1,1038 @@
+/* makeup.css - Glam by Priya (Luxury Bridal & Editorial Makeup Artistry) */
+
+:root {
+  --makeup-bg: #FAF9F6;
+  --makeup-bg-card: #F5F0E8;
+  --makeup-text: #2C2C2C;
+  --makeup-text-muted: #57524D;
+  --makeup-accent: #C9A96E;      /* Muted Gold */
+  --makeup-accent-rose: #D5B0AC; /* Dusty Rose */
+  --makeup-dark-accent: #3E2723; /* Deep Espresso */
+  --makeup-border: rgba(62, 39, 35, 0.08);
+}
+
+.premium-makeup-body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--makeup-bg);
+  color: var(--makeup-text);
+  line-height: 1.75;
+  overflow-x: hidden;
+  text-align: left;
+  min-height: 100vh;
+}
+
+.premium-makeup-serif {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+}
+
+/* Luxury Navbar */
+.premium-makeup-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 60px;
+  background-color: var(--makeup-bg);
+  border-bottom: 1px solid var(--makeup-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+@media (max-width: 768px) {
+  .premium-makeup-navbar {
+    padding: 16px 24px;
+  }
+}
+
+.premium-makeup-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--makeup-dark-accent);
+  text-transform: uppercase;
+}
+
+.premium-makeup-nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.premium-makeup-nav-link {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--makeup-text);
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.premium-makeup-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: var(--makeup-accent);
+  transition: width 0.3s;
+}
+
+.premium-makeup-nav-link:hover::after {
+  width: 100%;
+}
+
+.premium-makeup-mobile-toggle {
+  display: none;
+}
+
+.premium-makeup-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99;
+  background-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .premium-makeup-mobile-toggle {
+    display: flex;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--makeup-dark-accent);
+    padding: 6px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .premium-makeup-nav-links {
+    display: none;
+  }
+
+  .premium-makeup-nav-links.mobile-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 68px;
+    left: 24px;
+    right: 24px;
+    background-color: var(--makeup-bg);
+    border: 1px solid var(--makeup-border);
+    padding: 24px;
+    gap: 20px;
+    box-shadow: 0 10px 30px rgba(62, 39, 37, 0.12);
+    text-align: center;
+    z-index: 100;
+  }
+
+  .premium-makeup-nav-link {
+    font-size: 12px;
+    display: block;
+    padding: 6px 0;
+  }
+}
+
+/* Hero Section */
+.premium-makeup-hero {
+  position: relative;
+  height: 85vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--makeup-dark-accent);
+}
+
+.premium-makeup-hero-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.65;
+}
+
+.premium-makeup-hero-overlay {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 780px;
+  padding: 0 24px;
+  color: white;
+}
+
+.premium-makeup-hero-subtitle {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--makeup-accent-rose);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.premium-makeup-hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 64px;
+  font-weight: 300;
+  line-height: 1.15;
+  margin-bottom: 40px;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 768px) {
+  .premium-makeup-hero-title {
+    font-size: 42px;
+  }
+}
+
+.premium-makeup-btn {
+  display: inline-block;
+  padding: 14px 36px;
+  background-color: white;
+  color: var(--makeup-dark-accent);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  border: 1px solid white;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 0;
+}
+
+.premium-makeup-btn:hover {
+  background-color: transparent;
+  color: white;
+}
+
+.premium-makeup-btn-outline {
+  background-color: transparent;
+  color: white;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.premium-makeup-btn-outline:hover {
+  background-color: white;
+  color: var(--makeup-dark-accent);
+  border-color: white;
+}
+
+.premium-makeup-btn-dark {
+  background-color: var(--makeup-dark-accent);
+  color: white;
+  border-color: var(--makeup-dark-accent);
+}
+
+.premium-makeup-btn-dark:hover {
+  background-color: transparent;
+  color: var(--makeup-dark-accent);
+}
+
+.premium-makeup-btn-sm {
+  padding: 10px 24px;
+  font-size: 10px;
+}
+
+/* Sections */
+.premium-makeup-section {
+  padding: 120px 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .premium-makeup-section {
+    padding: 80px 20px;
+  }
+}
+
+.premium-makeup-sec-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px;
+  font-weight: 300;
+  color: var(--makeup-dark-accent);
+  text-align: center;
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.premium-makeup-sec-subtitle {
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--makeup-accent);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.premium-makeup-section-subtitle {
+  text-align: center;
+  color: var(--makeup-text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Before / After Slider styling */
+.premium-makeup-slider-container {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid var(--makeup-border);
+  position: relative;
+  aspect-ratio: 1.4;
+  box-shadow: 0 20px 40px rgba(62, 39, 37, 0.06);
+}
+
+.premium-makeup-slider-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+}
+
+.premium-makeup-slider-before {
+  z-index: 2;
+  overflow: hidden;
+  height: 100%;
+  width: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-right: 1.5px solid white;
+}
+
+.premium-makeup-slider-img-before {
+  width: 720px; /* Must match container max-width */
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (max-width: 768px) {
+  .premium-makeup-slider-img-before {
+    width: calc(100vw - 40px);
+  }
+}
+
+.premium-makeup-slider-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background-color: white;
+  z-index: 3;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.premium-makeup-slider-handle-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  background-color: var(--makeup-bg);
+  border: 1px solid var(--makeup-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--makeup-dark-accent);
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(62, 39, 35, 0.15);
+}
+
+.premium-makeup-slider-label {
+  position: absolute;
+  bottom: 24px;
+  padding: 6px 14px;
+  background-color: var(--makeup-bg);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  z-index: 3;
+  color: var(--makeup-text);
+  border: 1px solid var(--makeup-border);
+}
+
+.premium-makeup-slider-label.before-label {
+  left: 24px;
+}
+
+.premium-makeup-slider-label.after-label {
+  right: 24px;
+}
+
+.premium-makeup-slider-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 4;
+  cursor: ew-resize;
+}
+
+/* Gallery tab filters */
+.premium-makeup-gallery-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin: 48px auto 20px;
+  border-bottom: 1px solid var(--makeup-border);
+  max-width: 600px;
+  padding-bottom: 12px;
+}
+
+@media (max-width: 480px) {
+  .premium-makeup-gallery-tabs {
+    gap: 16px;
+  }
+}
+
+.premium-makeup-gallery-tab {
+  background: none;
+  border: none;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--makeup-text-muted);
+  cursor: pointer;
+  position: relative;
+  padding: 8px 0;
+}
+
+.premium-makeup-gallery-tab.active, .premium-makeup-gallery-tab:hover {
+  color: var(--makeup-dark-accent);
+}
+
+.premium-makeup-gallery-tab::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: var(--makeup-dark-accent);
+  transition: width 0.3s;
+}
+
+.premium-makeup-gallery-tab.active::after {
+  width: 100%;
+}
+
+/* Skin Tone Filter Options */
+.premium-makeup-tone-filters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.premium-makeup-tone-btn {
+  background: none;
+  border: 1px solid var(--makeup-border);
+  padding: 6px 16px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--makeup-text-muted);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.premium-makeup-tone-btn.active, .premium-makeup-tone-btn:hover {
+  border-color: var(--makeup-dark-accent);
+  color: var(--makeup-dark-accent);
+  background-color: rgba(62, 39, 35, 0.03);
+}
+
+/* Masonry Layout Grid */
+.premium-makeup-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .premium-makeup-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .premium-makeup-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.premium-makeup-gallery-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 0.78;
+  background-color: var(--makeup-bg-card);
+  cursor: pointer;
+}
+
+.premium-makeup-gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premium-makeup-gallery-item:hover .premium-makeup-gallery-img {
+  transform: scale(1.03);
+}
+
+.premium-makeup-gallery-item-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(62, 39, 35, 0.8), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+}
+
+.premium-makeup-gallery-item:hover .premium-makeup-gallery-item-overlay {
+  opacity: 1;
+}
+
+.premium-makeup-gallery-tag {
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--makeup-accent-rose);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.premium-makeup-gallery-desc {
+  color: white;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-style: italic;
+  margin-bottom: 4px;
+}
+
+/* Lightbox Modal */
+.premium-makeup-lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(30, 29, 28, 0.98);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.premium-makeup-lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.premium-makeup-lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+  padding: 16px;
+  transition: color 0.2s;
+}
+
+.premium-makeup-lightbox-nav:hover {
+  color: white;
+}
+
+.premium-makeup-lightbox-nav.prev { left: 24px; }
+.premium-makeup-lightbox-nav.next { right: 24px; }
+
+@media (max-width: 600px) {
+  .premium-makeup-lightbox-nav { display: none; }
+}
+
+.premium-makeup-lightbox-content {
+  max-width: 90%;
+  max-height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.premium-makeup-lightbox-img {
+  max-width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+.premium-makeup-lightbox-caption {
+  color: #dcd7d0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-style: italic;
+}
+
+/* Services & Pricing Cards */
+.premium-makeup-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 56px;
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .premium-makeup-pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 40px;
+  }
+}
+
+.premium-makeup-price-card {
+  background-color: var(--makeup-bg);
+  border: 1px solid var(--makeup-border);
+  padding: 48px 36px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  position: relative;
+}
+
+.premium-makeup-price-card.active {
+  border: 1.5px solid var(--makeup-accent);
+  background-color: #fffdfc;
+  box-shadow: 0 10px 30px rgba(201, 169, 110, 0.08);
+}
+
+.premium-makeup-price-badge {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: white;
+  background-color: var(--makeup-accent);
+  padding: 3px 8px;
+}
+
+.premium-makeup-price-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--makeup-dark-accent);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.premium-makeup-price-rate {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--makeup-text);
+  margin-bottom: 16px;
+}
+
+.premium-makeup-price-desc {
+  font-size: 13px;
+  color: var(--makeup-text-muted);
+  line-height: 1.5;
+  margin-bottom: 32px;
+  min-height: 60px;
+}
+
+.premium-makeup-price-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+  flex: 1;
+}
+
+.premium-makeup-price-features li {
+  font-size: 13px;
+  color: var(--makeup-text-muted);
+  position: relative;
+  padding-left: 20px;
+}
+
+.premium-makeup-price-features li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--makeup-accent);
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* About / Story Section */
+.premium-makeup-story-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 120px 24px;
+}
+
+@media (max-width: 768px) {
+  .premium-makeup-story-wrapper {
+    padding: 80px 20px;
+  }
+}
+
+.premium-makeup-story-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 60px;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .premium-makeup-story-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.premium-makeup-story-content {
+  text-align: left;
+}
+
+.premium-makeup-story-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px;
+  font-weight: 300;
+  color: var(--makeup-dark-accent);
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.premium-makeup-story-text {
+  font-size: 15px;
+  color: var(--makeup-text-muted);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.premium-makeup-story-img-wrap {
+  aspect-ratio: 0.85;
+  overflow: hidden;
+  background-color: var(--makeup-bg-card);
+}
+
+.premium-makeup-story-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Process Timeline Section */
+.premium-makeup-process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+}
+
+@media (max-width: 900px) {
+  .premium-makeup-process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .premium-makeup-process-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.premium-makeup-process-card {
+  text-align: left;
+}
+
+.premium-makeup-process-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 44px;
+  color: var(--makeup-accent-rose);
+  font-weight: 300;
+  display: block;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--makeup-border);
+  padding-bottom: 8px;
+}
+
+.premium-makeup-process-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--makeup-dark-accent);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.premium-makeup-process-desc {
+  font-size: 14px;
+  color: var(--makeup-text-muted);
+  line-height: 1.6;
+}
+
+/* Reviews / Testimonials */
+.premium-makeup-reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
+  margin-top: 48px;
+}
+
+@media (max-width: 768px) {
+  .premium-makeup-reviews-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.premium-makeup-review-card {
+  text-align: left;
+  border-left: 2px solid var(--makeup-accent-rose);
+  padding-left: 24px;
+}
+
+.premium-makeup-review-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-style: italic;
+  color: var(--makeup-dark-accent);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.premium-makeup-review-author {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--makeup-text);
+  display: block;
+}
+
+.premium-makeup-review-context {
+  font-size: 11px;
+  color: var(--makeup-text-muted);
+  display: block;
+  margin-top: 2px;
+}
+
+/* Referrals / Add-on list */
+.premium-makeup-referrals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .premium-makeup-referrals-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.premium-makeup-referral-item {
+  border: 1px solid var(--makeup-border);
+  padding: 20px;
+  font-size: 13px;
+  color: var(--makeup-text);
+  text-align: center;
+}
+
+/* Contact / Booking form & Simulated Calendar */
+.premium-makeup-contact-wrapper {
+  background-color: var(--makeup-bg-card);
+  border: 1px solid var(--makeup-border);
+  padding: 48px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .premium-makeup-contact-wrapper {
+    padding: 32px 20px;
+  }
+}
+
+.premium-makeup-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 580px) {
+  .premium-makeup-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+.premium-makeup-form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+@media (max-width: 580px) {
+  .premium-makeup-form-group {
+    grid-column: span 1 !important;
+  }
+}
+
+.premium-makeup-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--makeup-dark-accent);
+  margin-bottom: 8px;
+}
+
+.premium-makeup-input {
+  border: 1px solid var(--makeup-border);
+  background-color: var(--makeup-bg);
+  padding: 12px 16px;
+  font-size: 14px;
+  color: var(--makeup-text);
+  outline: none;
+  font-family: inherit;
+  border-radius: 0;
+  transition: border-color 0.3s;
+}
+
+.premium-makeup-input:focus {
+  border-color: var(--makeup-accent);
+}
+
+.premium-makeup-hidden-field {
+  display: none !important;
+}
+
+/* Simulated Calendar call booking box */
+.premium-makeup-calendar-booking-card {
+  border: 1px solid var(--makeup-border);
+  background-color: var(--makeup-bg);
+  padding: 32px;
+  margin: 24px auto 0;
+  max-width: 480px;
+  text-align: center;
+}
+
+/* Footer styling */
+.premium-makeup-footer {
+  background-color: var(--makeup-bg-card);
+  padding: 80px 24px 40px;
+  border-top: 1px solid var(--makeup-border);
+}
+
+.premium-makeup-footer-content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto 56px;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.premium-makeup-footer-left {
+  text-align: left;
+}
+
+.premium-makeup-footer-right {
+  text-align: right;
+}
+
+@media (max-width: 580px) {
+  .premium-makeup-footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .premium-makeup-footer-left, .premium-makeup-footer-right {
+    text-align: center;
+    align-items: center;
+  }
+}
+
+.premium-makeup-footer-links {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+}
+
+@media (max-width: 580px) {
+  .premium-makeup-footer-links {
+    justify-content: center;
+  }
+}
+
+.premium-makeup-footer-link {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--makeup-text-muted);
+}
+
+.premium-makeup-footer-link:hover {
+  color: var(--makeup-dark-accent);
+}
+
+.premium-makeup-footer-copy {
+  font-size: 11px;
+  color: var(--makeup-text-muted);
+  border-top: 1px solid var(--makeup-border);
+  padding-top: 24px;
+  text-align: center;
+}
