@@ -881,6 +881,30 @@
   font-family: inherit;
   border-radius: 0;
   transition: border-color 0.3s;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.premium-tattoo-form-group-full {
+  grid-column: span 2;
+}
+
+@media (max-width: 580px) {
+  .premium-tattoo-form-group-full {
+    grid-column: span 1 !important;
+  }
+}
+
+.premium-tattoo-form-submit-btn {
+  grid-column: span 2;
+  margin-top: 16px;
+}
+
+@media (max-width: 580px) {
+  .premium-tattoo-form-submit-btn {
+    grid-column: span 1 !important;
+  }
 }
 
 .premium-tattoo-input:focus {

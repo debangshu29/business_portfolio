@@ -468,7 +468,7 @@ export default function MaisonBoulangerie() {
                 />
               </div>
 
-              <div className="premium-bakery-form-full" style={{ borderTop: '1px solid var(--bakery-border)', paddingTop: '24px', marginTop: '12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
+              <div className="premium-bakery-form-footer">
                 <div>
                   <span className="premium-bakery-label" style={{ color: 'var(--bakery-text-muted)' }}>Estimated Quote:</span>
                   <div style={{ fontSize: '28px', color: 'var(--bakery-dark-accent)', fontWeight: 300 }} className="premium-bakery-serif">

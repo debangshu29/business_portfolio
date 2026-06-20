@@ -459,7 +459,7 @@ export default function GlamPriya() {
             ))}
           </div>
 
-          <div className="premium-makeup-process-grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
+          <div className="premium-makeup-kit-grid">
             {filteredKit.map((item, idx) => (
               <div key={idx} className="premium-makeup-process-card" style={{ padding: '24px', border: '1px solid var(--makeup-border)', backgroundColor: 'var(--makeup-bg)' }}>
                 <span className="premium-makeup-process-num" style={{ fontSize: '20px', marginBottom: '8px' }}>✓</span>
@@ -593,7 +593,7 @@ export default function GlamPriya() {
                 </select>
               </div>
 
-              <div className="premium-makeup-form-group" style={{ gridColumn: 'span 2' }}>
+              <div className="premium-makeup-form-group premium-makeup-form-group-full">
                 <label className="premium-makeup-label">Describe Your Dream Look / Skin Type</label>
                 <textarea 
                   required
@@ -615,7 +615,7 @@ export default function GlamPriya() {
                 />
               </div>
 
-              <button type="submit" className="premium-makeup-btn premium-makeup-btn-dark" style={{ gridColumn: 'span 2', marginTop: '16px' }}>
+              <button type="submit" className="premium-makeup-btn premium-makeup-btn-dark premium-makeup-form-submit-btn">
                 Verify Availability
               </button>
             </form>

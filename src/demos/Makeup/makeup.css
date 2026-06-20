@@ -950,6 +950,30 @@
   font-family: inherit;
   border-radius: 0;
   transition: border-color 0.3s;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.premium-makeup-form-group-full {
+  grid-column: span 2;
+}
+
+@media (max-width: 580px) {
+  .premium-makeup-form-group-full {
+    grid-column: span 1 !important;
+  }
+}
+
+.premium-makeup-form-submit-btn {
+  grid-column: span 2;
+  margin-top: 16px;
+}
+
+@media (max-width: 580px) {
+  .premium-makeup-form-submit-btn {
+    grid-column: span 1 !important;
+  }
 }
 
 .premium-makeup-input:focus {
@@ -1035,4 +1059,25 @@
   border-top: 1px solid var(--makeup-border);
   padding-top: 24px;
   text-align: center;
+}
+
+/* Custom Makeup Kit Grid */
+.premium-makeup-kit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+}
+
+@media (max-width: 900px) {
+  .premium-makeup-kit-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .premium-makeup-kit-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
 }

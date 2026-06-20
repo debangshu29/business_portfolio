@@ -599,7 +599,7 @@ export default function InkSoul() {
                 </select>
               </div>
 
-              <div className="premium-tattoo-form-group" style={{ gridColumn: 'span 2' }}>
+              <div className="premium-tattoo-form-group premium-tattoo-form-group-full">
                 <label className="premium-tattoo-label">Describe Your Concept Details</label>
                 <textarea 
                   required
@@ -621,7 +621,7 @@ export default function InkSoul() {
                 />
               </div>
 
-              <button type="submit" className="premium-tattoo-btn" style={{ gridColumn: 'span 2', marginTop: '16px' }}>
+              <button type="submit" className="premium-tattoo-btn premium-tattoo-form-submit-btn">
                 Submit Custom Inquiry
               </button>
             </form>

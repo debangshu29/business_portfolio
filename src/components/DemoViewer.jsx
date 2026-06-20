@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { X, Laptop, Smartphone, RotateCcw, ArrowLeft } from 'lucide-react';
+import { X, ArrowLeft } from 'lucide-react';
 
 // Import Demo components
 import SweetCrumbs from '../demos/Bakery';
@@ -10,27 +9,21 @@ import InkSoul from '../demos/Tattoo';
 import CleanHome from '../demos/Cleaning';
 
 export default function DemoViewer({ activeDemo, onClose }) {
-  const [viewMode, setViewMode] = useState('desktop'); // desktop or mobile
-  const [resetKey, setResetKey] = useState(0); // Key to force re-render/reset demo state
-
-  const handleReset = () => {
-    setResetKey(prev => prev + 1);
-  };
 
   const getDemoComponent = () => {
     switch (activeDemo) {
       case 'bakery':
-        return <SweetCrumbs key={resetKey} />;
+        return <SweetCrumbs />;
       case 'foodtruck':
-        return <RollingBites key={resetKey} />;
+        return <RollingBites />;
       case 'photography':
-        return <LunaCo key={resetKey} />;
+        return <LunaCo />;
       case 'makeup':
-        return <GlamPriya key={resetKey} />;
+        return <GlamPriya />;
       case 'tattoo':
-        return <InkSoul key={resetKey} />;
+        return <InkSoul />;
       case 'cleaning':
-        return <CleanHome key={resetKey} />;
+        return <CleanHome />;
       default:
         return <div>Demo Not Found</div>;
     }
@@ -69,29 +62,7 @@ export default function DemoViewer({ activeDemo, onClose }) {
           {info.niche && <span className="demo-viewer-tag">{info.niche}</span>}
         </div>
 
-        <div className="demo-viewer-controls">
-          <button 
-            className={`demo-mode-btn desktop-toggle ${viewMode === 'desktop' ? 'active' : ''}`}
-            onClick={() => setViewMode('desktop')}
-            title="Desktop View"
-          >
-            <Laptop size={18} />
-          </button>
-          <button 
-            className={`demo-mode-btn ${viewMode === 'mobile' ? 'active' : ''}`}
-            onClick={() => setViewMode('mobile')}
-            title="Mobile View"
-          >
-            <Smartphone size={18} />
-          </button>
-          <button 
-            className="demo-mode-btn" 
-            onClick={handleReset}
-            title="Reset Interactive Demo"
-          >
-            <RotateCcw size={18} />
-          </button>
-        </div>
+
 
         <button className="demo-viewer-close-btn" onClick={onClose}>
           <X size={16} />
@@ -101,7 +72,7 @@ export default function DemoViewer({ activeDemo, onClose }) {
 
       {/* Main Preview Pane */}
       <div className="demo-viewport-wrapper">
-        <div className={`demo-viewport ${viewMode}`}>
+        <div className="demo-viewport desktop">
           {getDemoComponent()}
         </div>
       </div>
