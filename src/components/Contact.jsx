@@ -18,31 +18,49 @@ export default function Contact() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    const subject = encodeURIComponent(`Website inquiry from ${formData.name}`);
-    const body = encodeURIComponent(
-      [
-        `Name: ${formData.name}`,
-        `Email: ${formData.email}`,
-        `Project Category: ${formData.businessType}`,
-        '',
-        formData.message
-      ].join('\n')
-    );
+    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HERE";
 
-    window.location.href = `mailto:ghosh.debangshu02@gmail.com?subject=${subject}&body=${body}`;
+    const payload = {
+      access_key: accessKey,
+      name: formData.name,
+      email: formData.email,
+      subject: `New Portfolio Inquiry from ${formData.name}`,
+      message: `Project Category: ${formData.businessType}\n\nMessage:\n${formData.message}`,
+      from_name: "Portfolio Contact Form"
+    };
 
-    setIsSubmitted(true);
-    setLoading(false);
-    setFormData({
-      name: '',
-      email: '',
-      businessType: 'Bakery',
-      message: ''
-    });
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setIsSubmitted(true);
+        setFormData({
+          name: '',
+          email: '',
+          businessType: 'Bakery',
+          message: ''
+        });
+      } else {
+        alert("Submission failed: " + (result.message || "Please check your access key or try again."));
+      }
+    } catch (error) {
+      console.error("Error submitting contact form:", error);
+      alert("An error occurred. Please try again or email directly.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -83,9 +101,9 @@ export default function Contact() {
             {isSubmitted ? (
               <div className="animate-fade-in" style={{ padding: '40px 0', textAlign: 'left' }}>
                 <CheckCircle2 size={44} style={{ color: 'var(--accent-gold)', marginBottom: '20px' }} />
-                <h4 style={{ fontSize: '22px', fontFamily: 'var(--font-serif)', fontWeight: 300, marginBottom: '12px' }}>Inquiry Received.</h4>
+                <h4 style={{ fontSize: '22px', fontFamily: 'var(--font-serif)', fontWeight: 300, marginBottom: '12px' }}>Inquiry Sent Successfully.</h4>
                 <p style={{ color: 'var(--text-secondary)', fontSize: '14px', marginBottom: '24px', lineHeight: 1.6 }}>
-                  Your email app should now be open with the inquiry prepared. Send it there, and I will get back to you within 24 hours.
+                  Thank you for reaching out! Your message has been sent directly to my inbox. I will get back to you within 24 hours.
                 </p>
                 <button className="form-submit-btn" onClick={() => setIsSubmitted(false)}>
                   Send another inquiry
