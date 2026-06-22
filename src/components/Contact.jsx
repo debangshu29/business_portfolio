@@ -22,7 +22,8 @@ export default function Contact() {
     e.preventDefault();
     setLoading(true);
 
-    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HERE";
+    // Web3Forms public access key (safe to expose in frontend code)
+    const accessKey = "23207631-7a71-459d-8eb9-9b0f4dc373c8";
 
     const payload = {
       access_key: accessKey,
